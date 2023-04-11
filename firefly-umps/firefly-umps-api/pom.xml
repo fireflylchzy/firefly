@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.firefly</groupId>
+        <artifactId>firefly-umps</artifactId>
+        <version>3.6.7</version>
+    </parent>
+
+    <artifactId>firefly-umps-api</artifactId>
+    <packaging>jar</packaging>
+
+    <description>pig 通用用户权限管理系统公共api模块</description>
+    <dependencies>
+        <!--core 工具类-->
+        <dependency>
+            <groupId>com.firefly</groupId>
+            <artifactId>firefly-common-core</artifactId>
+        </dependency>
+        <!--swagger-->
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-annotations</artifactId>
+        </dependency>
+        <!--feign 注解依赖-->
+        <dependency>
+            <groupId>com.firefly</groupId>
+            <artifactId>firefly-common-feign</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+
+    </dependencies>
+</project>
