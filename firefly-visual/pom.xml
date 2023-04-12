@@ -11,6 +11,7 @@
 
     <artifactId>firefly-visual</artifactId>
     <packaging>pom</packaging>
+
     <modules>
         <!-- sentinel 控制台-->
         <module>firefly-sentinel-dashboard</module>

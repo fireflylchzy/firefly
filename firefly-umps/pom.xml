@@ -11,6 +11,7 @@
 
     <artifactId>firefly-umps</artifactId>
     <packaging>pom</packaging>
+
     <modules>
         <!--通用用户权限管理系统公共api模块 -->
         <module>firefly-umps-api</module>

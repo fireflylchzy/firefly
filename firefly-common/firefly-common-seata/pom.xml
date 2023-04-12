@@ -17,8 +17,8 @@
     <dependencies>
         <!--核心依赖-->
         <dependency>
-            <groupId>com.pig4cloud</groupId>
-            <artifactId>pig-common-core</artifactId>
+            <groupId>com.firefly</groupId>
+            <artifactId>firefly-common-core</artifactId>
         </dependency>
         <!-- seata-->
         <dependency>

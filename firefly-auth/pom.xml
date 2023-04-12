@@ -27,17 +27,17 @@
         </dependency>
         <!--断路器依赖-->
         <dependency>
-            <groupId>com.pig4cloud</groupId>
-            <artifactId>pig-common-feign</artifactId>
+            <groupId>com.firefly</groupId>
+            <artifactId>firefly-common-feign</artifactId>
         </dependency>
         <!--upms api、model 模块-->
         <dependency>
-            <groupId>com.pig4cloud</groupId>
-            <artifactId>pig-upms-api</artifactId>
+            <groupId>com.firefly</groupId>
+            <artifactId>firefly-umps-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.pig4cloud</groupId>
-            <artifactId>pig-common-security</artifactId>
+            <groupId>com.firefly</groupId>
+            <artifactId>firefly-common-security</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

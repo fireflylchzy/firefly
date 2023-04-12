@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>com.firefly</groupId>
-        <artifactId>firefly-common</artifactId>
-        <version>3.6.7</version>
-    </parent>
 
+    <groupId>com.firefly</groupId>
     <artifactId>firefly-common-bom</artifactId>
+    <version>3.6.7</version>
+    <packaging>pom</packaging>
+
     <name>firefly-common-bom</name>
     <url>firefly cloud parent</url>
-    <description>firefly cloud parent</description>
+    <description>pig cloud parent</description>
 
     <properties>
         <firefly.common.version>${project.version}</firefly.common.version>
@@ -217,5 +216,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

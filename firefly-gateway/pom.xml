@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -12,7 +10,7 @@
     <artifactId>firefly-gateway</artifactId>
     <packaging>jar</packaging>
 
-    <description>firefly 服务网关，基于 spring cloud gateway</description>
+    <description>pig 服务网关，基于 spring cloud gateway</description>
 
     <dependencies>
         <!--gateway 网关依赖,内置webflux 依赖-->
@@ -61,8 +59,8 @@
         </dependency>
         <!-- 工具包依赖 -->
         <dependency>
-            <groupId>com.pig4cloud</groupId>
-            <artifactId>pig-common-core</artifactId>
+            <groupId>com.firefly</groupId>
+            <artifactId>firefly-common-core</artifactId>
         </dependency>
         <dependency>
             <groupId>cn.hutool</groupId>
@@ -91,6 +89,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>
