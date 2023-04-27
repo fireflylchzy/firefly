@@ -1,12 +1,15 @@
 # mysql
-账号密码 root root
-sudo docker run -p 3306:3306 --name mysql
--v /mydata/mysql/log:/var/log/mysql
--v /mydata/mysql/data:/var/lib/mysql
--v /mydata/mysql/conf:/var/mysql
--e MYSQL_ROOT_PASSWORD=root
+账号密码 root firefly
+sudo docker run -p 3306:3306 --name mysql \
+-v /mydata/mysql/log:/var/log/mysql \
+-v /mydata/mysql/data:/var/lib/mysql \
+-v /mydata/mysql/conf:/var/mysql \
+-e MYSQL_ROOT_PASSWORD=firefly \
+--restart always \
 -d mysql:5.7
 sudo docker run -p 3306:3306 --name mysql -v /mydata/mysql/log:/var/log/mysql -v /mydata/mysql/data:/var/lib/mysql -v /mydata/mysql/conf:/var/mysql -e MYSQL_ROOT_PASSWORD=root --restart always -d mysql:5.7
+
+
 
 
 
@@ -20,9 +23,26 @@ docker run -d --name nacos -p 8848:8848 \
 -e MYSQL_SERVICE_PORT=3306 \
 -e MYSQL_SERVICE_DB_NAME=firefly-nacos \
 -e MYSQL_SERVICE_USER=root \
--e MYSQL_SERVICE_PASSWORD=root \
+-e MYSQL_SERVICE_PASSWORD=firefly \
 --restart always \
 nacos/nacos-server
+
+docker run -d -p 8848:8848 --name nacos \
+--privileged=true \
+--restart=always \
+-e JVM_XMS=256m \
+-e JVM_XMX=256m \
+-e MODE=standalone \
+-e PREFER_HOST_MODE=hostname \
+-e NACOS_AUTH_ENABLE=true \
+-e nacos.core.auth.server.identity.key=nacos \
+-e nacos.core.auth.server.identity.value=security \
+-e nacos.core.auth.server.token.secret.key=SecretKey012345678901234567890123456789012345678901234567890123456789 \
+-v /mydata/nacos-logs:/home/nacos/nacos-logs \
+-v /mydata/nacos-data/custom.properties:/home/nacos-data/custom.properties \
+--restart=always \
+nacos/nacos-server
+
 
 docker run --env PREFER_HOST_MODE=hostname --env MODE=standalone --env NACOS_AUTH_ENABLE=true -p 8848:8848 nacos/nacos-server
 
@@ -36,9 +56,11 @@ docker volume create mongo-data
 # 启动 MongoDB
 docker run -d \
   --name mongo-yapi \
+  -p 27017:27017  \
   -v mongo-data:/data/db \
   -e MONGO_INITDB_ROOT_USERNAME=anoyi \
   -e MONGO_INITDB_ROOT_PASSWORD=anoyi.com \
+  --restart=always \
   mongo
 获取 YAPI 镜像，其他版本：阿里云镜像仓库
   docker pull registry.cn-hangzhou.aliyuncs.com/anoyi/yapi
@@ -61,7 +83,7 @@ docker run -it --rm \
   --link mongo-yapi:mongo \
   --entrypoint npm \
   --workdir /yapi/vendors \
-  -v $PWD/config.json:/yapi/config.json \
+  -v /mydata/yapi/config.json:/yapi/config.json \
   registry.cn-hangzhou.aliyuncs.com/anoyi/yapi \
   run install-server
 启动 Yapi 服务
@@ -70,6 +92,6 @@ docker run -d \
   --link mongo-yapi:mongo \
   --workdir /yapi/vendors \
   -p 3000:3000 \
-  -v $PWD/config.json:/yapi/config.json \
+  -v /mydata/yapi/config.json:/yapi/config.json \
   registry.cn-hangzhou.aliyuncs.com/anoyi/yapi \
   server/app.js
